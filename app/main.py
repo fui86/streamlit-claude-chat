@@ -20,6 +20,14 @@ if "messages" not in st.session_state:
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
+uploaded_file = st.file_uploader("Carica un file da analizzare", type=["php", "txt", "html", "js", "css", "md", "json", "csv"])
+
+if uploaded_file is not None:
+    file_content = uploaded_file.read().decode("utf-8")
+    st.session_state.messages.append({"role": "user", "content": f"Analizza questo file:\n\n{file_content}"})
+    with st.chat_message("user"):
+        st.markdown(f"📄 Hai caricato il file: `{uploaded_file.name}`")
+        st.code(file_content[:2000], language="php")  # mostriamo un'anteprima
 
 if prompt := st.chat_input("What is up?"):
     st.session_state.messages.append({"role": "user", "content": prompt})
