@@ -1,23 +1,15 @@
-import os
-import anthropic
 import streamlit as st
+import anthropic
 
-st.title("Claude 3 by Streamlit")
+# ⛽ Leggi API key e modello dai secrets (più sicuro e senza errori)
+api_key = st.secrets["ANTHROPIC_API_KEY"]
+ai_model = st.secrets["AI_MODEL"]
 
-ai_model = os.environ.get("AI_MODEL")
-api_key = os.environ.get("API_KEY")
-
+# 🧠 Inizializza client Claude
 client = anthropic.Anthropic(api_key=api_key)
 
-# 🔍 Mostra modelli disponibili con la tua API key
-if st.button("🎯 Mostra modelli disponibili"):
-    try:
-        models_response = client.models.list()
-        st.subheader("Modelli disponibili:")
-        for model in models_response["data"]:
-            st.markdown(f"- `{model['id']}`")
-    except Exception as e:
-        st.error(f"Errore nel recupero dei modelli: {e}")
+# 🎯 Titolo e setup iniziale
+st.title("💬 Chat con Claude via API (Streamlit + Anthropic)")
 
 if "ai_model" not in st.session_state:
     st.session_state["ai_model"] = ai_model
@@ -63,13 +55,17 @@ if prompt := st.chat_input("Scrivi qui la tua domanda o richiesta"):
         message_placeholder = st.empty()
         full_response = ""
         with client.messages.stream(
-            max_tokens=4096,
-            messages=[{"role": m["role"], "content": m["content"]} for m in st.session_state.messages],
             model=st.session_state["ai_model"],
+            max_tokens=4096,
+            messages=[
+                {"role": m["role"], "content": m["content"]}
+                for m in st.session_state.messages
+            ],
         ) as stream:
             for text in stream.text_stream:
                 full_response += str(text) if text is not None else ""
                 message_placeholder.markdown(full_response + "▌")
+
         message_placeholder.markdown(full_response)
 
     st.session_state.messages.append({"role": "assistant", "content": full_response})
