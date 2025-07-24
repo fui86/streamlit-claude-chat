@@ -9,6 +9,16 @@ api_key = os.environ.get("API_KEY")
 
 client = anthropic.Anthropic(api_key=api_key)
 
+# 🔍 Mostra modelli disponibili con la tua API key
+if st.button("🎯 Mostra modelli disponibili"):
+    try:
+        models_response = client.models.list()
+        st.subheader("Modelli disponibili:")
+        for model in models_response["data"]:
+            st.markdown(f"- `{model['id']}`")
+    except Exception as e:
+        st.error(f"Errore nel recupero dei modelli: {e}")
+
 if "ai_model" not in st.session_state:
     st.session_state["ai_model"] = ai_model
 
