@@ -1,4 +1,6 @@
-num1 = 18
-num2 = 7
-sum_of_numbers = num1 + num2
-print(f"The sum of {num1} and {num2} is: {sum_of_numbers}")
+number = 15
+
+if number % 2 == 0:
+    print(f"{number} is Even")
+else:
+    print(f"{number} is Odd")
