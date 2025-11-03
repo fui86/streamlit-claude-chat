@@ -1,36 +1,23 @@
-# streamlit-claude-chat
+# New Project
 
-Streamlit LLM Chat App by anthropic claude
+A clean repository ready for your next project.
 
-![screen_shot](./image/screen_shot_1.gif)
+## Getting Started
 
-## git clone
+Add your project details here.
 
-```
-git clone https://github.com/festiva1300/streamlit-claude-chat.git
-cd streamlit-claude-chat
-```
-
-## environment setting
-
-Write the Anthripic access key, the model to be used in the `.env` file.
-
-```
-API_KEY=XX-XXXXX...
-AI_MODEL=claude-3-sonnet-20240229
-```
-
-## execute
-
-### build a container
+## Installation
 
 ```bash
-docker build ./ -t streamlit-claude-chat
+# Installation instructions
 ```
 
-### deploy on local
+## Usage
 
 ```bash
-docker compose up -d
+# Usage instructions
 ```
 
+## License
+
+See LICENSE file for details.
