@@ -85,6 +85,22 @@ except Exception as e:
 # Inizializza la sessione
 if "messages" not in st.session_state:
     st.session_state.messages = []
+    # Aggiungi un messaggio di benvenuto iniziale
+    welcome_message = """👋 **Ciao! Benvenuto nel Claude Code Assistant!**
+
+Sono qui per aiutarti con:
+- 🔍 **Debug e analisi** del codice PHP e WordPress
+- 🎨 **Creazione di hook e funzioni** personalizzate
+- 🔌 **Sviluppo di plugin** WordPress
+- 🛡️ **Controlli di sicurezza** del codice
+- ⚡ **Ottimizzazione delle performance**
+
+Puoi iniziare caricando un file, incollando del codice, o semplicemente facendomi una domanda! 🚀"""
+    
+    st.session_state.messages.append({
+        "role": "assistant",
+        "content": welcome_message
+    })
 
 if "files_processed" not in st.session_state:
     st.session_state.files_processed = []
