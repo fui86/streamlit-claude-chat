@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Il Tuo Preventivo 747 Disco</title>
+</head>
+<body style="margin: 0; padding: 0; font-family: 'Arial', 'Helvetica', sans-serif; background-color: #1a1a1a;">
+    <table role="presentation" style="width: 100%; border-collapse: collapse; background-color: #1a1a1a;">
+        <tr>
+            <td align="center" style="padding: 0;">
+                <!-- Container principale -->
+                <table role="presentation" style="width: 100%; max-width: 600px; border-collapse: collapse; background-color: #ffffff;">
+                    
+                    <!-- Header con logo e sfondo oro -->
+                    <tr>
+                        <td style="padding: 0; background: linear-gradient(135deg, #000000 0%, #2a2a2a 100%); text-align: center; position: relative;">
+                            <div style="padding: 40px 20px;">
+                                <img src="https://747disco.it/wp-content/uploads/2025/06/images.png" alt="747 Disco" style="max-width: 180px; height: auto; margin-bottom: 20px;">
+                                <h1 style="color: #D4AF37; margin: 0; font-size: 32px; font-weight: bold; text-transform: uppercase; letter-spacing: 2px;">Il Tuo Evento da Sogno</h1>
+                                <p style="color: #ffffff; margin: 15px 0 0 0; font-size: 16px; font-weight: 300;">È a un passo dalla realtà</p>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- Barra oro -->
+                    <tr>
+                        <td style="padding: 0; background: linear-gradient(90deg, #D4AF37 0%, #FFD700 50%, #D4AF37 100%); height: 4px;"></td>
+                    </tr>
+
+                    <!-- Contenuto principale -->
+                    <tr>
+                        <td style="padding: 40px 30px; background-color: #ffffff;">
+                            <p style="color: #2a2a2a; font-size: 18px; line-height: 1.6; margin: 0 0 25px 0;">
+                                Ciao <strong style="color: #D4AF37;">{{nome_referente}}</strong>,
+                            </p>
+                            
+                            <p style="color: #4a4a4a; font-size: 16px; line-height: 1.8; margin: 0 0 20px 0;">
+                                Grazie per aver scelto <strong style="color: #000000;">747 Disco</strong> per il tuo <strong>{{tipo_evento}}</strong>! 🎉
+                            </p>
+
+                            <p style="color: #4a4a4a; font-size: 16px; line-height: 1.8; margin: 0 0 30px 0;">
+                                Siamo entusiasti di poter trasformare la tua visione in un evento indimenticabile. La nostra location esclusiva è pronta ad accogliere te e i tuoi ospiti in un'atmosfera unica e raffinata.
+                            </p>
+
+                            <!-- Box riepilogo -->
+                            <table role="presentation" style="width: 100%; border-collapse: collapse; background: linear-gradient(135deg, #f8f8f8 0%, #e8e8e8 100%); border-left: 4px solid #D4AF37; margin: 30px 0;">
+                                <tr>
+                                    <td style="padding: 25px;">
+                                        <h2 style="color: #000000; font-size: 20px; margin: 0 0 20px 0; text-transform: uppercase; letter-spacing: 1px;">📋 Riepilogo Preventivo</h2>
+                                        
+                                        <table role="presentation" style="width: 100%; border-collapse: collapse;">
+                                            <tr>
+                                                <td style="padding: 8px 0; color: #2a2a2a; font-size: 15px; border-bottom: 1px solid #d0d0d0;"><strong>Evento:</strong></td>
+                                                <td style="padding: 8px 0; color: #4a4a4a; font-size: 15px; text-align: right; border-bottom: 1px solid #d0d0d0;">{{tipo_evento}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 8px 0; color: #2a2a2a; font-size: 15px; border-bottom: 1px solid #d0d0d0;"><strong>Data:</strong></td>
+                                                <td style="padding: 8px 0; color: #4a4a4a; font-size: 15px; text-align: right; border-bottom: 1px solid #d0d0d0;">{{data_evento}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 8px 0; color: #2a2a2a; font-size: 15px; border-bottom: 1px solid #d0d0d0;"><strong>Invitati:</strong></td>
+                                                <td style="padding: 8px 0; color: #4a4a4a; font-size: 15px; text-align: right; border-bottom: 1px solid #d0d0d0;">{{numero_invitati}} persone</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 8px 0; color: #2a2a2a; font-size: 15px; border-bottom: 1px solid #d0d0d0;"><strong>Menu:</strong></td>
+                                                <td style="padding: 8px 0; color: #4a4a4a; font-size: 15px; text-align: right; border-bottom: 1px solid #d0d0d0;">{{tipo_menu}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 15px 0 8px 0; color: #000000; font-size: 18px; font-weight: bold;"><strong>Investimento Totale:</strong></td>
+                                                <td style="padding: 15px 0 8px 0; color: #D4AF37; font-size: 22px; font-weight: bold; text-align: right;">€ {{importo_totale}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 8px 0; color: #2a2a2a; font-size: 15px;"><strong>Acconto richiesto:</strong></td>
+                                                <td style="padding: 8px 0; color: #4a4a4a; font-size: 15px; text-align: right;">€ {{acconto}}</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <!-- Valore aggiunto -->
+                            <div style="margin: 35px 0;">
+                                <h3 style="color: #000000; font-size: 18px; margin: 0 0 20px 0; text-align: center; text-transform: uppercase; letter-spacing: 1px;">✨ Cosa Include</h3>
+                                
+                                <table role="presentation" style="width: 100%; border-collapse: collapse;">
+                                    <tr>
+                                        <td style="width: 50%; padding: 10px; vertical-align: top;">
+                                            <div style="text-align: center;">
+                                                <div style="font-size: 32px; margin-bottom: 8px;">🎭</div>
+                                                <p style="color: #2a2a2a; font-size: 14px; font-weight: bold; margin: 0 0 5px 0;">Location Esclusiva</p>
+                                                <p style="color: #6a6a6a; font-size: 13px; margin: 0; line-height: 1.4;">Atmosfera unica e raffinata</p>
+                                            </div>
+                                        </td>
+                                        <td style="width: 50%; padding: 10px; vertical-align: top;">
+                                            <div style="text-align: center;">
+                                                <div style="font-size: 32px; margin-bottom: 8px;">🎵</div>
+                                                <p style="color: #2a2a2a; font-size: 14px; font-weight: bold; margin: 0 0 5px 0;">Impianto Audio Pro</p>
+                                                <p style="color: #6a6a6a; font-size: 13px; margin: 0; line-height: 1.4;">Suono cristallino per la tua festa</p>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width: 50%; padding: 10px; vertical-align: top;">
+                                            <div style="text-align: center;">
+                                                <div style="font-size: 32px; margin-bottom: 8px;">💡</div>
+                                                <p style="color: #2a2a2a; font-size: 14px; font-weight: bold; margin: 0 0 5px 0;">Luci Scenografiche</p>
+                                                <p style="color: #6a6a6a; font-size: 13px; margin: 0; line-height: 1.4;">Illuminazione d'effetto</p>
+                                            </div>
+                                        </td>
+                                        <td style="width: 50%; padding: 10px; vertical-align: top;">
+                                            <div style="text-align: center;">
+                                                <div style="font-size: 32px; margin-bottom: 8px;">👥</div>
+                                                <p style="color: #2a2a2a; font-size: 14px; font-weight: bold; margin: 0 0 5px 0;">Staff Dedicato</p>
+                                                <p style="color: #6a6a6a; font-size: 13px; margin: 0; line-height: 1.4;">Assistenza completa</p>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <!-- Call to action -->
+                            <div style="text-align: center; margin: 40px 0 30px 0;">
+                                <p style="color: #2a2a2a; font-size: 16px; line-height: 1.6; margin: 0 0 25px 0;">
+                                    <strong>Il prossimo passo?</strong> Conferma la tua prenotazione e iniziamo a pianificare ogni dettaglio insieme! 🎊
+                                </p>
+                                
+                                <a href="tel:{{telefono_sede}}" style="display: inline-block; padding: 16px 40px; background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%); color: #000000; text-decoration: none; font-weight: bold; font-size: 16px; text-transform: uppercase; letter-spacing: 1px; border-radius: 4px; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4); margin: 10px;">
+                                    📞 Chiamaci Ora
+                                </a>
+                                
+                                <a href="mailto:{{email_sede}}" style="display: inline-block; padding: 16px 40px; background-color: #000000; color: #D4AF37; text-decoration: none; font-weight: bold; font-size: 16px; text-transform: uppercase; letter-spacing: 1px; border-radius: 4px; margin: 10px;">
+                                    ✉️ Rispondi via Email
+                                </a>
+                            </div>
+
+                            <!-- Urgenza -->
+                            <div style="background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%); border-left: 4px solid #D4AF37; padding: 20px; margin: 30px 0;">
+                                <p style="color: #000000; font-size: 15px; line-height: 1.6; margin: 0; text-align: center;">
+                                    <strong>⏰ Attenzione:</strong> Le date disponibili per eventi di qualità come il tuo sono limitate. Ti consigliamo di confermare al più presto per garantire la disponibilità!
+                                </p>
+                            </div>
+
+                            <p style="color: #4a4a4a; font-size: 15px; line-height: 1.8; margin: 30px 0 0 0;">
+                                Non vediamo l'ora di realizzare insieme il tuo evento perfetto! 🌟
+                            </p>
+
+                            <p style="color: #2a2a2a; font-size: 15px; line-height: 1.8; margin: 15px 0 0 0;">
+                                A presto,<br>
+                                <strong style="color: #D4AF37; font-size: 16px;">Il Team 747 Disco</strong>
+                            </p>
+                        </td>
+                    </tr>
+
+                    <!-- Footer -->
+                    <tr>
+                        <td style="padding: 30px; background-color: #000000; text-align: center;">
+                            <img src="https://747disco.it/wp-content/uploads/2025/06/images.png" alt="747 Disco" style="max-width: 120px; height: auto; margin-bottom: 15px; opacity: 0.9;">
+                            
+                            <p style="color: #D4AF37; font-size: 16px; font-weight: bold; margin: 0 0 10px 0; text-transform: uppercase; letter-spacing: 1px;">747 Disco - Ciampino</p>
+                            
+                            <p style="color: #a0a0a0; font-size: 14px; margin: 5px 0; line-height: 1.6;">
+                                📍 Vicino al GRA - Roma<br>
+                                📞 <a href="tel:{{telefono_sede}}" style="color: #D4AF37; text-decoration: none;">{{telefono_sede}}</a><br>
+                                ✉️ <a href="mailto:{{email_sede}}" style="color: #D4AF37; text-decoration: none;">{{email_sede}}</a>
+                            </p>
+
+                            <div style="margin: 20px 0;">
+                                <a href="https://747disco.it" style="color: #D4AF37; text-decoration: none; font-size: 14px; margin: 0 10px;">🌐 Sito Web</a>
+                                <span style="color: #4a4a4a;">|</span>
+                                <a href="https://www.instagram.com/747disco" style="color: #D4AF37; text-decoration: none; font-size: 14px; margin: 0 10px;">📸 Instagram</a>
+                                <span style="color: #4a4a4a;">|</span>
+                                <a href="https://www.facebook.com/747disco" style="color: #D4AF37; text-decoration: none; font-size: 14px; margin: 0 10px;">👍 Facebook</a>
+                            </div>
+
+                            <p style="color: #6a6a6a; font-size: 12px; margin: 20px 0 0 0; line-height: 1.5;">
+                                Dove ogni evento diventa leggenda 🌟
+                            </p>
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

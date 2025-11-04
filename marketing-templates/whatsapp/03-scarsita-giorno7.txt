@@ -1,0 +1,40 @@
+═══════════════════════════════════════
+⚠️ MESSAGGIO WHATSAPP #3 - SCARSITÀ E URGENZA
+Timing: 7 giorni dopo il preventivo
+═══════════════════════════════════════
+
+Ciao {{nome_referente}}! 👋
+
+Aggiornamento importante sulla tua data! ⏰
+
+🔴 SITUAZIONE ATTUALE:
+La data del {{data_evento}} è ancora disponibile, MA... abbiamo ricevuto altre 2 richieste per lo stesso periodo!
+
+📊 Ti faccio un riepilogo veloce:
+━━━━━━━━━━━━━━━━━━━━━
+📅 {{data_evento}}
+👥 {{numero_invitati}} persone
+💰 € {{importo_totale}}
+🔒 Acconto: € {{acconto}}
+━━━━━━━━━━━━━━━━━━━━━
+
+⚡ LA VERITÀ:
+Non possiamo tenere bloccata la data ancora per molto. Le location come la nostra si riempiono velocemente, specialmente per eventi di qualità!
+
+💡 COSA PUOI FARE:
+Basta l'acconto di € {{acconto}} per bloccare SUBITO:
+✅ La tua data
+✅ Il prezzo concordato
+✅ Tutto il pacchetto
+
+Vuoi che teniamo da parte per te? 
+Chiamami o rispondimi qui! 📱
+
+Non vorrei che qualcun altro la prenesse... 😕
+
+---
+[TUO NOME]
+747 Disco
+📞 {{telefono_sede}}
+
+═══════════════════════════════════════

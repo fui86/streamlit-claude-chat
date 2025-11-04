@@ -1,0 +1,38 @@
+═══════════════════════════════════════
+📋 MESSAGGIO WHATSAPP #1 - CONFERMA PREVENTIVO
+Timing: Invio immediato dopo preventivo
+═══════════════════════════════════════
+
+Ciao {{nome_referente}}! 👋
+
+Sono [TUO NOME] di 747 Disco! 
+
+Ti ho appena inviato via email il preventivo per il tuo {{tipo_evento}} del {{data_evento}}! 🎉
+
+📧 Controlla la tua casella (anche lo spam!)
+
+Nel frattempo ti riassumo velocemente:
+
+✨ Location esclusiva 747 Disco
+📅 Data: {{data_evento}}
+👥 Ospiti: {{numero_invitati}}
+🍽️ Menu: {{tipo_menu}}
+💰 Investimento: € {{importo_totale}}
+
+💡 Il pacchetto include:
+• Location con atmosfera unica
+• Impianto audio/luci professionale
+• Staff dedicato
+• E molto altro!
+
+Hai domande? Scrivimi pure qui! 
+Sono a tua disposizione 😊
+
+PS: Le date belle volano via velocemente, se ti interessa fammi sapere presto! ⏰
+
+---
+Il Team 747 Disco 🌟
+📍 Ciampino (GRA) - Roma
+📞 {{telefono_sede}}
+
+═══════════════════════════════════════

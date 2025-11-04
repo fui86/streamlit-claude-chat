@@ -1,0 +1,177 @@
+═══════════════════════════════════════
+💬 MESSAGGI WHATSAPP EXTRA - SITUAZIONI SPECIFICHE
+═══════════════════════════════════════
+
+═══════════════════════════════════════
+📱 MESSAGGIO: CLIENTE HA VISTO IL MESSAGGIO MA NON RISPONDE
+═══════════════════════════════════════
+
+Ehi {{nome_referente}}! 👀
+
+Ho visto che hai letto il messaggio! 😊
+
+Va tutto bene? Hai bisogno di altre info?
+
+A volte basta un piccolo chiarimento per togliere ogni dubbio!
+
+Scrivimi pure qualsiasi cosa, anche la domanda più piccola! 💬
+
+Sono qui 😊
+
+---
+
+═══════════════════════════════════════
+💰 MESSAGGIO: CLIENTE CHIEDE SCONTO
+═══════════════════════════════════════
+
+Capisco perfettamente {{nome_referente}}! 😊
+
+Guarda, il prezzo di € {{importo_totale}} per {{numero_invitati}} persone è già molto competitivo per quello che offriamo...
+
+PERÒ... 🤔
+
+Se confermi OGGI posso:
+✅ Includere l'upgrade luci (€ 300 di valore)
+✅ Aggiungere 1 ora extra di location gratis
+✅ Bloccare questo prezzo anche se l'evento è tra mesi
+
+Praticamente € 300+ di valore in più!
+
+Che dici, ci stai? 🤝
+
+---
+
+═══════════════════════════════════════
+🤔 MESSAGGIO: CLIENTE INDECISO TRA LOCATION
+═══════════════════════════════════════
+
+{{nome_referente}}, capisco che stai valutando più opzioni! 👍
+
+È normale e giusto! 
+
+Ti dico una cosa però... 🎯
+
+747 Disco non è "solo una location":
+• È l'UNICA vera disco-location su Ciampino/GRA
+• Abbiamo impianto audio/luci PRO (non improvvisato)
+• I tuoi ospiti vivranno un'ESPERIENZA, non "solo una festa"
+• Il nostro staff fa la differenza!
+
+Non ti dico di sceglierci a occhi chiusi...
+
+Ma vieni a vedere! 👀
+Ti faccio fare un giro veloce e decidi tu!
+
+Quando ti va bene? 📅
+
+---
+
+═══════════════════════════════════════
+📅 MESSAGGIO: CLIENTE VUOLE SPOSTARE DATA
+═══════════════════════════════════════
+
+Nessun problema {{nome_referente}}! 😊
+
+Cambiare data? Si può fare! 💪
+
+Dimmi quali date alternative hai in mente e controllo subito la disponibilità!
+
+L'importante è trovare il momento perfetto per te! 
+
+📆 Quale periodo preferisci?
+
+---
+
+═══════════════════════════════════════
+✅ MESSAGGIO: CONFERMA DI INTERESSE (PRE-CLOSING)
+═══════════════════════════════════════
+
+FANTASTICO {{nome_referente}}!! 🎉🎉
+
+Sono felicissimo! 
+
+Allora, per bloccare subito la tua data {{data_evento}} facciamo così:
+
+1️⃣ Ti invio i dati per l'acconto di € {{acconto}}
+2️⃣ Appena fatto, la data è BLOCCATA per te!
+3️⃣ Fissiamo un incontro per organizzare tutto nel dettaglio
+
+Vai con bonifico o preferisci altro? 💳
+
+Procedo! 🚀
+
+---
+
+═══════════════════════════════════════
+🎊 MESSAGGIO: POST-CONFERMA (DOPO ACCONTO)
+═══════════════════════════════════════
+
+🎉🎉🎉 CONFERMATO! 🎉🎉🎉
+
+{{nome_referente}}, la data {{data_evento}} è UFFICIALMENTE TUA! 🔒
+
+Acconto ricevuto! ✅
+
+Ora inizia la parte divertente: organizziamo il TUO {{tipo_evento}} perfetto! 💎
+
+📌 PROSSIMI STEP:
+• Ti chiamo nei prossimi giorni
+• Fissiamo un incontro per i dettagli
+• Iniziamo a personalizzare tutto!
+
+Benvenuto nella famiglia 747 Disco! 🌟
+
+Prepare for EPIC! 🚀
+
+PS: Hai già pensato al tema/colori dell'evento? 🎨
+
+---
+Il Team 747 Disco
+📞 {{telefono_sede}}
+
+═══════════════════════════════════════
+😢 MESSAGGIO: CLIENTE RIFIUTA (CHIUSURA POSITIVA)
+═══════════════════════════════════════
+
+{{nome_referente}}, nessun problema! 😊
+
+Capisco che i piani cambiano, fa parte della vita!
+
+Ti ringrazio comunque per il tempo che mi hai dedicato 🙏
+
+Se in futuro dovessi organizzare altri eventi, sai dove trovarmi! 
+
+La porta di 747 Disco è sempre aperta per te! 🚪✨
+
+In bocca al lupo per tutto! 🍀
+
+---
+[TUO NOME]
+747 Disco
+
+═══════════════════════════════════════
+
+═══════════════════════════════════════
+📊 BEST PRACTICES WHATSAPP:
+═══════════════════════════════════════
+
+✅ USA EMOJI (ma non esagerare)
+✅ Messaggi brevi e diretti
+✅ Vai a capo spesso (leggibilità mobile)
+✅ Crea urgenza senza essere aggressivo
+✅ Chiedi sempre una risposta/azione
+✅ Personalizza con nome e dettagli
+✅ Rispondi velocemente quando scrivono
+✅ Usa note vocali per cose complesse
+✅ Invia foto/video della location
+✅ Manda testimonianze clienti soddisfatti
+
+❌ NON FARE:
+❌ Messaggi troppo lunghi
+❌ Troppi messaggi consecutivi
+❌ Pressione eccessiva
+❌ Ignorare per giorni
+❌ Essere troppo formali
+❌ Inviare sempre di sera tardi
+
+═══════════════════════════════════════

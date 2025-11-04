@@ -1,0 +1,32 @@
+═══════════════════════════════════════
+💬 MESSAGGIO WHATSAPP #2 - FOLLOW-UP EMOZIONALE
+Timing: 3 giorni dopo il preventivo
+═══════════════════════════════════════
+
+Ciao {{nome_referente}}! 😊
+
+Come va? Spero tu stia bene!
+
+Ti scrivo veloce per sapere se hai avuto modo di guardare il preventivo per il tuo {{tipo_evento}} del {{data_evento}}! 
+
+🤔 Hai qualche dubbio o domanda?
+
+Magari vuoi:
+• Modificare qualcosa nel pacchetto?
+• Vedere altre opzioni di menu?
+• Fare un sopralluogo della location?
+• Parlare di personalizzazioni?
+
+Sono qui proprio per questo! 💪
+
+Ah, piccola cosa... 📌
+Ho visto che per quel periodo stiamo ricevendo diverse richieste. Non voglio metterti fretta, ma se ti interessa davvero, meglio non aspettare troppo!
+
+Che ne dici? Ne parliamo? 😊
+
+---
+[TUO NOME]
+747 Disco Team
+📞 {{telefono_sede}}
+
+═══════════════════════════════════════

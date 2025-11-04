@@ -1,0 +1,44 @@
+═══════════════════════════════════════
+🚨 MESSAGGIO WHATSAPP #4 - ULTIMA CHIAMATA
+Timing: 10 giorni dopo il preventivo
+═══════════════════════════════════════
+
+{{nome_referente}}, ultima chiamata! 🚨
+
+Questa è l'ultima volta che ti contatto per il preventivo.
+
+🔴 AGGIORNAMENTO CRITICO:
+Abbiamo un altro cliente interessato alla data del {{data_evento}} e ci ha chiesto di confermare entro 48H.
+
+💔 Non vorrei davvero assegnarla ad altri, ma dobbiamo prendere una decisione...
+
+━━━━━━━━━━━━━━━━━━━━━
+IL TUO EVENTO:
+{{tipo_evento}}
+{{data_evento}}
+{{numero_invitati}} persone
+€ {{importo_totale}}
+
+⏰ TEMPO RIMASTO: 48 ORE
+━━━━━━━━━━━━━━━━━━━━━
+
+🎁 BONUS SE CONFERMI OGGI:
+Ti regalo l'upgrade delle luci scenografiche (valore € 300)!
+
+✅ COSA SERVE PER BLOCCARE:
+Solo l'acconto di € {{acconto}}
+E la data è TUA!
+
+📞 CHIAMAMI ORA: {{telefono_sede}}
+Oppure rispondi qui e sistemiamo tutto in 5 minuti!
+
+Se invece hai cambiato idea, dimmi pure tranquillamente! Nessun problema 😊
+
+Ma se ti interessa ancora... 
+È ADESSO O MAI PIÙ! ⏰
+
+---
+[TUO NOME]
+747 Disco Team
+
+═══════════════════════════════════════
