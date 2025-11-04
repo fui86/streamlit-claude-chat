@@ -1,8 +1,9 @@
 version: '3'
 services:
   streamlit:
-    image: 'streamlit-claude-chat'
-    env_file:
-     - .env
+    image: '747disco-app'
+    build: .
     ports:          
       - 8501:8501
+    volumes:
+      - ./app:/app
