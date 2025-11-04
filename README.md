@@ -1,6 +1,6 @@
-# streamlit-claude-chat
+# 747Disco - Marketing & Vendite Eventi Assistant
 
-Streamlit LLM Chat App by anthropic claude
+Assistente AI per marketing e vendite di eventi privati - 747Disco Ciampino (Roma)
 
 ![screen_shot](./image/screen_shot_1.gif)
 

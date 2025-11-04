@@ -3,12 +3,13 @@ import streamlit as st
 
 # Configurazione pagina
 st.set_page_config(
-    page_title="Claude Code Assistant", 
-    page_icon="💻",
+    page_title="747Disco - Marketing & Vendite Eventi", 
+    page_icon="🎉",
     layout="wide"
 )
 
-st.title("💻 Claude Code Assistant - PHP & WordPress")
+st.title("🎉 747Disco - Assistant Marketing & Vendite Eventi")
+st.caption("📍 Location: Ciampino (Roma) - Vicino al GRA | Specializzati in Eventi Privati")
 
 # Sidebar per configurazioni
 with st.sidebar:
@@ -16,7 +17,7 @@ with st.sidebar:
     
     # Selezione del modello
     model_options = [
-        "claude-3-5-sonnet-20241022",    # Claude 3.5 Sonnet (più stabile per coding)
+        "claude-3-5-sonnet-20241022",    # Claude 3.5 Sonnet (ottimo per marketing)
         "claude-sonnet-4-20250514",      # Claude Sonnet 4
         "claude-3-5-haiku-20241022",     # Claude 3.5 Haiku
         "claude-3-opus-20240229"         # Claude 3 Opus
@@ -26,32 +27,46 @@ with st.sidebar:
         "Seleziona il modello:",
         model_options,
         index=0,
-        help="Claude 3.5 Sonnet è ottimo per il coding"
+        help="Claude 3.5 Sonnet è ottimo per strategie di marketing"
     )
     
     # Parametri di configurazione
     max_tokens = st.slider("Max tokens:", 1000, 8000, 4096)
-    temperature = st.slider("Temperature:", 0.0, 1.0, 0.1, help="Più basso = più preciso per il codice")
+    temperature = st.slider("Temperature:", 0.0, 1.0, 0.7, help="Più alto = più creativo per marketing")
     
     st.markdown("---")
     
-    # Template veloci per WordPress
-    st.subheader("🚀 Template Veloci")
+    # Template veloci per Marketing & Vendite
+    st.subheader("🚀 Template Marketing & Vendite")
     
     templates = {
-        "🔍 Debug PHP": "Analizza questo codice PHP e trova eventuali bug o problemi:",
-        "🎨 Hook WordPress": "Crea un hook WordPress per:",
-        "📝 Funzione PHP": "Scrivi una funzione PHP che:",
-        "🔌 Plugin WordPress": "Crea un plugin WordPress che:",
-        "⚡ Ottimizzazione": "Ottimizza questo codice per performance:",
-        "🛡️ Sicurezza": "Controlla la sicurezza di questo codice:",
-        "📱 Responsive": "Rendi questo CSS responsive:",
-        "🎯 Query MySQL": "Scrivi una query MySQL per:"
+        "📧 Email Proposta": "Crea una email professionale per proporre un evento a un cliente:",
+        "📱 Messaggio WhatsApp": "Scrivi un messaggio WhatsApp per contattare un cliente:",
+        "📝 Preventivo Evento": "Crea un preventivo dettagliato per un evento:",
+        "🎯 Strategia Marketing": "Suggerisci una strategia di marketing per:",
+        "💬 Script Vendita": "Crea uno script di vendita telefonica per:",
+        "📊 Analisi Cliente": "Analizza questo cliente e suggerisci approccio:",
+        "🎉 Pitch Evento": "Crea un pitch convincente per vendere:",
+        "📈 Piano Comunicazione": "Crea un piano di comunicazione per:"
     }
     
     for emoji_name, prompt_template in templates.items():
         if st.button(emoji_name, use_container_width=True):
             st.session_state.quick_template = prompt_template
+    
+    st.markdown("---")
+    
+    # Informazioni business
+    st.subheader("ℹ️ Info 747Disco")
+    st.info("""
+    **📍 Location**: Ciampino (Roma)  
+    **🚗**: Vicino al GRA  
+    **🎯**: Eventi Privati  
+    - Compleanni
+    - Feste private
+    - Eventi aziendali
+    - Matrimoni
+    """)
     
     st.markdown("---")
     
@@ -70,6 +85,7 @@ try:
     # Verifica chiave caricata
     st.caption(f"🔑 API Key: {api_key[:10]}...*** ✅")
     st.caption(f"🤖 Modello: **{selected_model}**")
+    st.caption(f"💼 Ruolo: **Esperto Marketing & Vendite Eventi**")
     
 except KeyError as e:
     st.error(f"❌ Errore: Chiave API non trovata nei secrets: {e}")
@@ -93,12 +109,53 @@ if "files_processed" not in st.session_state:
 col1, col2 = st.columns([2, 1])
 
 with col2:
-    st.subheader("📁 Upload Codice")
+    st.subheader("📋 Informazioni Cliente/Evento")
     
-    # Upload file
+    # Campi per informazioni evento
+    event_type = st.selectbox(
+        "Tipo di evento:",
+        ["Compleanno", "Festa Privata", "Evento Aziendale", "Matrimonio", "Altro"],
+        index=0
+    )
+    
+    guest_count = st.number_input("Numero ospiti:", min_value=1, max_value=500, value=50)
+    
+    budget = st.text_input("Budget (€):", placeholder="Es: 2000-3000")
+    
+    event_date = st.date_input("Data evento:")
+    
+    client_info = st.text_area(
+        "Info cliente (nome, contatto, preferenze, etc.):",
+        height=150,
+        placeholder="Es: Mario Rossi, tel: 333..., cerca location per compleanno 50 anni..."
+    )
+    
+    if st.button("📤 Analizza Richiesta", use_container_width=True) and client_info.strip():
+        analysis_message = f"""Analizza questa richiesta cliente per un evento 747Disco:
+
+**Tipo Evento**: {event_type}
+**Numero Ospiti**: {guest_count}
+**Budget**: {budget}€
+**Data**: {event_date}
+**Info Cliente**: {client_info}
+
+Suggerisci:
+1. Strategia di vendita
+2. Proposta personalizzata
+3. Punti di forza da evidenziare
+4. Eventuali obiezioni da gestire
+"""
+        st.session_state.messages.append({"role": "user", "content": analysis_message})
+        st.rerun()
+    
+    st.markdown("---")
+    
+    # Upload file (per documenti, preventivi, etc.)
+    st.subheader("📁 Upload Documenti")
+    
     uploaded_files = st.file_uploader(
-        "Carica file di codice:",
-        type=["php", "js", "css", "html", "py", "txt", "json", "xml", "sql"],
+        "Carica documenti (PDF, TXT, DOCX):",
+        type=["pdf", "txt", "docx", "doc"],
         accept_multiple_files=True,
         key="file_uploader"
     )
@@ -107,34 +164,12 @@ with col2:
         st.write("**File caricati:**")
         for file in uploaded_files:
             st.write(f"📄 {file.name}")
-    
-    st.markdown("---")
-    
-    # Box per inserimento codice manuale
-    st.subheader("💾 Inserisci Codice")
-    
-    code_language = st.selectbox(
-        "Linguaggio:",
-        ["php", "javascript", "css", "html", "sql", "python", "text"],
-        index=0
-    )
-    
-    code_input = st.text_area(
-        "Incolla il tuo codice qui:",
-        height=200,
-        placeholder="<?php\n// Il tuo codice PHP qui...\n?>"
-    )
-    
-    if st.button("📤 Analizza Codice", use_container_width=True) and code_input.strip():
-        code_message = f"Analizza questo codice {code_language.upper()}:\n\n```{code_language}\n{code_input}\n```"
-        st.session_state.messages.append({"role": "user", "content": code_message})
-        st.rerun()
 
 with col1:
-    st.subheader("💬 Chat con Claude")
+    st.subheader("💬 Assistant Marketing & Vendite")
     
     # Container per i messaggi
-    chat_container = st.container(height=500)
+    chat_container = st.container(height=600)
     
     # Mostra messaggi precedenti
     with chat_container:
@@ -154,7 +189,7 @@ if uploaded_files:
                 file_content = uploaded_file.read().decode("utf-8")
                 filename = uploaded_file.name
                 
-                # Determina il linguaggio dal file
+                # Determina il tipo dal file
                 file_ext = filename.split('.')[-1].lower()
                 
                 # Limita la lunghezza
@@ -162,7 +197,7 @@ if uploaded_files:
                 if len(file_content) > max_content_length:
                     file_content = file_content[:max_content_length] + "\n\n... [file troncato]"
                 
-                file_message = f"📄 **File: `{filename}`**\n\nAnalizza questo codice e dimmi se ci sono problemi, miglioramenti possibili o bug:\n\n```{file_ext}\n{file_content}\n```"
+                file_message = f"📄 **File: `{filename}`**\n\nAnalizza questo documento e suggerisci strategie di marketing/vendita o miglioramenti:\n\n```{file_ext}\n{file_content}\n```"
                 
                 st.session_state.messages.append({
                     "role": "user",
@@ -180,7 +215,7 @@ if 'quick_template' in st.session_state:
     st.info(f"💡 Template selezionato: {st.session_state.quick_template}")
 
 # Input manuale utente
-prompt_placeholder = "Scrivi la tua domanda sul codice..."
+prompt_placeholder = "Chiedi consigli su marketing, vendite, eventi, preventivi..."
 if 'quick_template' in st.session_state:
     prompt_placeholder = st.session_state.quick_template
 
@@ -194,7 +229,7 @@ if prompt := st.chat_input(prompt_placeholder):
     
     # Aggiunge messaggio sistema per identificazione corretta del modello
     if len(st.session_state.messages) == 0:
-        system_message = f"Sei Claude {selected_model.split('-')[1]} {'4' if 'sonnet-4' in selected_model else '3.5'}, un assistente AI specializzato in sviluppo PHP e WordPress. Quando ti viene chiesto quale modello sei, rispondi sempre con la versione corretta: {selected_model}."
+        system_message = f"Sei Claude {selected_model.split('-')[1]} {'4' if 'sonnet-4' in selected_model else '3.5'}, un assistente AI specializzato in marketing e vendite per eventi privati. Sei un esperto di marketing e vendite, un grande commerciante. Ti occupi di vendita di eventi privati, come feste di compleanno, eventi di ogni genere. In particolare sei proprietario di una location di nome 747Disco a Ciampino, vicino al GRA, di Roma."
         st.session_state.messages.append({"role": "assistant", "content": system_message})
     
     st.session_state.messages.append({"role": "user", "content": full_prompt})
@@ -221,12 +256,32 @@ if prompt := st.chat_input(prompt_placeholder):
                         })
                 
                 # Aggiunge system prompt come primo messaggio user
-                system_prompt = f"Sei Claude, modello {selected_model}. Sei specializzato in sviluppo PHP, WordPress, debugging e ottimizzazione del codice. Rispondi sempre in modo tecnico e preciso."
+                system_prompt = f"""Sei Claude, modello {selected_model}. 
+
+Sei un GRANDE ESPERTO di marketing e vendite, un grande commerciante. Ti occupi di vendita di eventi privati, come feste di compleanno, eventi di ogni genere. 
+
+In particolare sei proprietario di una location di nome 747Disco a Ciampino, vicino al GRA, di Roma.
+
+Le tue competenze:
+- Marketing strategico per eventi
+- Tecniche di vendita e chiusura contratti
+- Comunicazione efficace con clienti
+- Creazione di proposte e preventivi vincenti
+- Gestione obiezioni comuni
+- Strategie di follow-up e lead nurturing
+- Personalizzazione di offerte per ogni tipo di evento
+
+La location 747Disco:
+- Si trova a Ciampino (Roma)
+- Vicino al GRA (facilmente raggiungibile)
+- Specializzata in eventi privati: compleanni, feste private, eventi aziendali, matrimoni
+
+Rispondi sempre in modo professionale, strategico e orientato alle vendite. Usa tecniche di persuasione efficaci ma etiche."""
                 api_messages.insert(0, {"role": "user", "content": system_prompt})
-                api_messages.insert(1, {"role": "assistant", "content": "Perfetto! Sono pronto ad aiutarti con PHP, WordPress e debugging. Dimmi pure cosa devi sviluppare o quale problema devo risolvere."})
+                api_messages.insert(1, {"role": "assistant", "content": "Perfetto! Sono il tuo assistente esperto di marketing e vendite per 747Disco. Sono specializzato in aiutarti a vendere eventi privati, creare proposte vincenti, gestire clienti e chiudere contratti. Come posso aiutarti oggi? 🎉"})
                 
                 # Chiamata streaming all'API
-                with st.spinner("Claude sta analizzando il codice..."):
+                with st.spinner("Claude sta preparando la strategia di marketing/vendita..."):
                     with client.messages.stream(
                         model=selected_model,
                         max_tokens=max_tokens,
@@ -260,11 +315,13 @@ if prompt := st.chat_input(prompt_placeholder):
 # Footer con suggerimenti
 st.markdown("---")
 st.markdown("""
-💡 **Suggerimenti per sviluppatori**:
-- 🔍 **Debug**: Carica file o incolla codice per l'analisi automatica
-- 🚀 **Template**: Usa i pulsanti nella sidebar per domande comuni
-- 🛡️ **Sicurezza**: Chiedi sempre controlli di sicurezza per il codice WordPress
-- ⚡ **Performance**: Ottimizza query e funzioni per migliori prestazioni
+💡 **Suggerimenti per Marketing & Vendite**:
+- 📧 **Email**: Usa i template per creare email professionali e convincenti
+- 💬 **Script Vendita**: Prepara script per chiamate e presentazioni
+- 📊 **Analisi Cliente**: Inserisci info cliente per strategie personalizzate
+- 🎯 **Preventivi**: Crea preventivi dettagliati e competitivi
+- 📱 **WhatsApp**: Usa template per comunicazioni veloci e efficaci
+- 🎉 **Pitch Eventi**: Sviluppa pitch convincenti per ogni tipo di evento
 """)
 
 # Debug info (nascosta di default)
