@@ -3,12 +3,12 @@ import streamlit as st
 
 # Configurazione pagina
 st.set_page_config(
-    page_title="Claude Code Assistant", 
-    page_icon="💻",
+    page_title="Claude Security & Code Assistant", 
+    page_icon="🔐",
     layout="wide"
 )
 
-st.title("💻 Claude Code Assistant - PHP & WordPress")
+st.title("🔐 Claude Security & Code Assistant - ISAKMP, Network Security, PHP & WordPress")
 
 # Sidebar per configurazioni
 with st.sidebar:
@@ -35,8 +35,28 @@ with st.sidebar:
     
     st.markdown("---")
     
+    # Template ISAKMP e Network Security
+    st.subheader("🔐 ISAKMP & Network Security")
+    
+    isakmp_templates = {
+        "🔑 ISAKMP Analysis": "Analizza questo pacchetto o configurazione ISAKMP e identifica potenziali problemi di sicurezza:",
+        "🛡️ IPsec Config": "Crea una configurazione IPsec sicura per:",
+        "🔐 SA Negotiation": "Spiega la negoziazione della Security Association per:",
+        "🌐 VPN Setup": "Configura un tunnel VPN sicuro usando ISAKMP/IKE per:",
+        "🔒 Key Exchange": "Implementa un protocollo di scambio chiavi sicuro per:",
+        "⚠️ Vulnerability Check": "Verifica vulnerabilità ISAKMP/IKE in questa configurazione:",
+        "📊 Protocol Analysis": "Analizza questo traffico di rete e identifica pattern ISAKMP:",
+        "🔧 Troubleshoot VPN": "Troubleshooting per problema VPN/ISAKMP:"
+    }
+    
+    for emoji_name, prompt_template in isakmp_templates.items():
+        if st.button(emoji_name, use_container_width=True, key=f"isakmp_{emoji_name}"):
+            st.session_state.quick_template = prompt_template
+    
+    st.markdown("---")
+    
     # Template veloci per WordPress
-    st.subheader("🚀 Template Veloci")
+    st.subheader("🚀 Web Development")
     
     templates = {
         "🔍 Debug PHP": "Analizza questo codice PHP e trova eventuali bug o problemi:",
@@ -97,8 +117,8 @@ with col2:
     
     # Upload file
     uploaded_files = st.file_uploader(
-        "Carica file di codice:",
-        type=["php", "js", "css", "html", "py", "txt", "json", "xml", "sql"],
+        "Carica file di codice o config:",
+        type=["php", "js", "css", "html", "py", "txt", "json", "xml", "sql", "conf", "cfg", "pcap", "log"],
         accept_multiple_files=True,
         key="file_uploader"
     )
@@ -111,11 +131,11 @@ with col2:
     st.markdown("---")
     
     # Box per inserimento codice manuale
-    st.subheader("💾 Inserisci Codice")
+    st.subheader("💾 Inserisci Codice/Config")
     
     code_language = st.selectbox(
-        "Linguaggio:",
-        ["php", "javascript", "css", "html", "sql", "python", "text"],
+        "Tipo:",
+        ["config", "log", "php", "javascript", "css", "html", "sql", "python", "text"],
         index=0
     )
     
@@ -221,9 +241,9 @@ if prompt := st.chat_input(prompt_placeholder):
                         })
                 
                 # Aggiunge system prompt come primo messaggio user
-                system_prompt = f"Sei Claude, modello {selected_model}. Sei specializzato in sviluppo PHP, WordPress, debugging e ottimizzazione del codice. Rispondi sempre in modo tecnico e preciso."
+                system_prompt = f"Sei Claude, modello {selected_model}. Sei un esperto in: 1) ISAKMP (Internet Security Association and Key Management Protocol) e protocolli di sicurezza di rete (IPsec, IKE, VPN), 2) Sviluppo PHP e WordPress, 3) Debugging e ottimizzazione del codice, 4) Sicurezza delle applicazioni e delle reti. Rispondi sempre in modo tecnico, preciso e dettagliato."
                 api_messages.insert(0, {"role": "user", "content": system_prompt})
-                api_messages.insert(1, {"role": "assistant", "content": "Perfetto! Sono pronto ad aiutarti con PHP, WordPress e debugging. Dimmi pure cosa devi sviluppare o quale problema devo risolvere."})
+                api_messages.insert(1, {"role": "assistant", "content": "Perfetto! Sono pronto ad aiutarti con ISAKMP/IPsec, network security, VPN, PHP, WordPress e debugging. Dimmi pure cosa devi sviluppare, analizzare o quale problema devo risolvere."})
                 
                 # Chiamata streaming all'API
                 with st.spinner("Claude sta analizzando il codice..."):
@@ -260,11 +280,22 @@ if prompt := st.chat_input(prompt_placeholder):
 # Footer con suggerimenti
 st.markdown("---")
 st.markdown("""
-💡 **Suggerimenti per sviluppatori**:
-- 🔍 **Debug**: Carica file o incolla codice per l'analisi automatica
+💡 **Suggerimenti**:
+- 🔐 **ISAKMP/IPsec**: Analizza configurazioni VPN, troubleshooting, security assessment
+- 🛡️ **Network Security**: Verifica vulnerabilità, analisi protocolli, key management
+- 🔍 **Debug Code**: Carica file o incolla codice per l'analisi automatica
 - 🚀 **Template**: Usa i pulsanti nella sidebar per domande comuni
-- 🛡️ **Sicurezza**: Chiedi sempre controlli di sicurezza per il codice WordPress
 - ⚡ **Performance**: Ottimizza query e funzioni per migliori prestazioni
+
+---
+
+### 📚 ISAKMP/IKE Key Concepts:
+- **Phase 1**: Establishes secure channel (Main Mode or Aggressive Mode)
+- **Phase 2**: Negotiates IPsec SAs (Quick Mode)
+- **Oakley Key Determination Protocol**: Provides perfect forward secrecy
+- **SKEYID**: Shared secret key material derived from authentication method
+- **SA Payload**: Contains security association proposals
+- **Authentication Methods**: Pre-shared keys, RSA signatures, RSA encrypted nonces
 """)
 
 # Debug info (nascosta di default)
