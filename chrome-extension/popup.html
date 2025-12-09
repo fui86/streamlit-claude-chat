@@ -14,6 +14,29 @@
         </div>
 
         <div class="section">
+            <details id="settings-section">
+                <summary>⚙️ Impostazioni</summary>
+                <div class="settings-content">
+                    <div class="setting-item">
+                        <label for="video-quality">Qualità Video:</label>
+                        <select id="video-quality" class="setting-select">
+                            <option value="360">360p</option>
+                            <option value="480" selected>480p</option>
+                            <option value="720">720p (HD)</option>
+                            <option value="1080">1080p (Full HD)</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label for="download-path">Cartella Download:</label>
+                        <input type="text" id="download-path" placeholder="Downloads/Karaoke" class="setting-input" />
+                        <small class="help-text">Percorso relativo alla cartella Downloads predefinita</small>
+                    </div>
+                    <button id="save-settings" class="btn btn-primary">💾 Salva Impostazioni</button>
+                </div>
+            </details>
+        </div>
+
+        <div class="section">
             <label for="youtube-url">Link YouTube:</label>
             <input type="text" id="youtube-url" placeholder="https://www.youtube.com/watch?v=..." />
             <button id="add-video" class="btn btn-primary">➕ Aggiungi Video</button>
@@ -37,10 +60,11 @@
             <details>
                 <summary>ℹ️ Come funziona</summary>
                 <ol>
+                    <li>Configura le impostazioni (qualità video e cartella download)</li>
                     <li>Incolla uno o più link YouTube</li>
                     <li>Clicca "Aggiungi Video" per ogni link</li>
                     <li>Clicca "Riproduci Tutti" per avviare</li>
-                    <li>I video verranno scaricati in 480p</li>
+                    <li>I video verranno scaricati nella qualità selezionata</li>
                     <li>Si apriranno a schermo intero sul secondo monitor</li>
                     <li>Dopo ogni video, scegli se eliminare il file</li>
                 </ol>

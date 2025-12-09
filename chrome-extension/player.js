@@ -1,31 +1,42 @@
 // Player script
 let videoId = null;
+let quality = '480';
+let downloadPath = 'Downloads/Karaoke';
 
 // Get video ID from URL parameters
 function init() {
     const urlParams = new URLSearchParams(window.location.search);
     videoId = urlParams.get('videoId');
+    quality = urlParams.get('quality') || '480';
+    downloadPath = urlParams.get('path') || 'Downloads/Karaoke';
     
     if (!videoId) {
         showError('ID video mancante');
         return;
     }
     
-    loadVideo(videoId);
+    loadVideo(videoId, quality, downloadPath);
 }
 
 // Load video
-function loadVideo(id) {
+function loadVideo(id, videoQuality, path) {
     const videoContainer = document.getElementById('video-container');
     const videoPlayer = document.getElementById('video-player');
     const loading = document.getElementById('loading');
     const videoTitle = document.getElementById('video-title');
     
     // Set YouTube embed URL with autoplay and controls
-    const embedUrl = `https://www.youtube.com/embed/${id}?autoplay=1&controls=1&rel=0&modestbranding=1`;
+    // Note: YouTube's vq parameter suggests quality but doesn't guarantee it
+    const embedUrl = `https://www.youtube.com/embed/${id}?autoplay=1&controls=1&rel=0&modestbranding=1&vq=${videoQuality}p`;
     
     videoPlayer.src = embedUrl;
-    videoTitle.textContent = `Video: ${id}`;
+    videoTitle.textContent = `Video: ${id} (${videoQuality}p)`;
+    
+    // Update loading message with quality and path info
+    const loadingText = document.querySelector('#loading p');
+    if (loadingText) {
+        loadingText.textContent = `Caricamento video (${videoQuality}p)...`;
+    }
     
     // Show video container and hide loading after a delay
     setTimeout(() => {

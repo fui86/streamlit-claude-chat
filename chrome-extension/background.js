@@ -6,7 +6,7 @@ let isPlaybackActive = false;
 // Listen for messages from popup
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.action === 'playPlaylist') {
-        handlePlayPlaylist(message.playlist)
+        handlePlayPlaylist(message.playlist, message.settings)
             .then(() => sendResponse({ success: true }))
             .catch((error) => sendResponse({ success: false, error: error.message }));
         return true; // Keep message channel open for async response
@@ -14,7 +14,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 });
 
 // Handle playlist playback
-async function handlePlayPlaylist(playlist) {
+async function handlePlayPlaylist(playlist, settings = {}) {
     if (isPlaybackActive) {
         throw new Error('Una riproduzione è già in corso');
     }
@@ -22,6 +22,13 @@ async function handlePlayPlaylist(playlist) {
     if (!playlist || playlist.length === 0) {
         throw new Error('Playlist vuota');
     }
+    
+    // Set default settings if not provided
+    const defaultSettings = {
+        videoQuality: '480',
+        downloadPath: 'Downloads/Karaoke'
+    };
+    const playbackSettings = { ...defaultSettings, ...settings };
     
     isPlaybackActive = true;
     
@@ -32,7 +39,7 @@ async function handlePlayPlaylist(playlist) {
         // Play each video in sequence
         for (let i = 0; i < playlist.length; i++) {
             const video = playlist[i];
-            await playVideo(video, displays);
+            await playVideo(video, displays, playbackSettings);
         }
         
         // Notify popup that playback is complete
@@ -55,7 +62,7 @@ async function getDisplays() {
 }
 
 // Play a single video
-async function playVideo(video, displays) {
+async function playVideo(video, displays, settings) {
     try {
         // Update status to downloading
         updateVideoStatus(video.id, 'downloading');
@@ -72,7 +79,7 @@ async function playVideo(video, displays) {
         
         // Calculate window position for fullscreen on target display
         const windowOptions = {
-            url: chrome.runtime.getURL(`player.html?videoId=${video.id}`),
+            url: chrome.runtime.getURL(`player.html?videoId=${video.id}&quality=${settings.videoQuality}&path=${encodeURIComponent(settings.downloadPath)}`),
             type: 'popup',
             state: 'fullscreen',
             left: targetDisplay.bounds.left,

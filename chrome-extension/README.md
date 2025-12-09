@@ -11,6 +11,8 @@ Una estensione di Google Chrome per scaricare e riprodurre video YouTube in moda
 - ✅ Richiesta di eliminazione file dopo la riproduzione
 - ✅ Supporto per playlist multiple
 - ✅ Interfaccia utente in italiano
+- ✅ **Scelta della qualità video (360p, 480p, 720p, 1080p)**
+- ✅ **Scelta della cartella di download personalizzata**
 
 ## 🚀 Installazione
 
@@ -41,6 +43,12 @@ Una estensione di Google Chrome per scaricare e riprodurre video YouTube in moda
 
 ## 📖 Come Usare
 
+### 0. Configurazione (Prima volta)
+- Clicca su "⚙️ Impostazioni" per espandere le opzioni
+- Seleziona la qualità video desiderata (360p, 480p, 720p, 1080p)
+- Specifica la cartella di download (es: "Downloads/Karaoke")
+- Clicca su "💾 Salva Impostazioni"
+
 ### 1. Apertura dell'estensione
 - Clicca sull'icona dell'estensione 🎤 nella barra degli strumenti di Chrome
 - Si aprirà il pannello di gestione
@@ -54,12 +62,12 @@ Una estensione di Google Chrome per scaricare e riprodurre video YouTube in moda
 ### 3. Riproduzione
 - Aggiungi tutti i video che desideri
 - Clicca su "▶️ Riproduci Tutti"
-- I video verranno riprodotti in sequenza
+- I video verranno riprodotti nella qualità selezionata
 - Ogni video si aprirà a schermo intero sul secondo monitor (se disponibile)
 
 ### 4. Gestione dei file
 - Dopo ogni video, ti verrà chiesto se vuoi eliminare il file
-- Scegli "💾 Mantieni" per conservare il video
+- Scegli "💾 Mantieni" per conservare il video nella cartella specificata
 - Scegli "🗑️ Elimina" per rimuovere il file
 
 ### 5. Gestione della playlist

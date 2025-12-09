@@ -262,3 +262,60 @@ input[type="text"]:focus {
 .controls .btn {
     flex: 1;
 }
+
+/* Settings section styles */
+#settings-section summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: #667eea;
+    padding: 5px;
+    user-select: none;
+}
+
+#settings-section summary:hover {
+    color: #5568d3;
+}
+
+.settings-content {
+    margin-top: 15px;
+}
+
+.setting-item {
+    margin-bottom: 15px;
+}
+
+.setting-item label {
+    margin-bottom: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #555;
+}
+
+.setting-select,
+.setting-input {
+    width: 100%;
+    padding: 8px;
+    border: 2px solid #e0e0e0;
+    border-radius: 5px;
+    font-size: 13px;
+    transition: border-color 0.3s;
+}
+
+.setting-select:focus,
+.setting-input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.help-text {
+    display: block;
+    margin-top: 5px;
+    font-size: 11px;
+    color: #999;
+    font-style: italic;
+}
+
+#save-settings {
+    width: 100%;
+    margin-top: 10px;
+}

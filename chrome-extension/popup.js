@@ -1,6 +1,10 @@
 // Popup management script
 let playlist = [];
 let currentVideoIndex = 0;
+let settings = {
+    videoQuality: '480',
+    downloadPath: 'Downloads/Karaoke'
+};
 
 // DOM Elements
 const youtubeUrlInput = document.getElementById('youtube-url');
@@ -9,13 +13,31 @@ const playAllBtn = document.getElementById('play-all');
 const clearPlaylistBtn = document.getElementById('clear-playlist');
 const playlistDiv = document.getElementById('playlist');
 const statusDiv = document.getElementById('status');
+const videoQualitySelect = document.getElementById('video-quality');
+const downloadPathInput = document.getElementById('download-path');
+const saveSettingsBtn = document.getElementById('save-settings');
 
-// Load playlist from storage on startup
-chrome.storage.local.get(['playlist'], (result) => {
+// Load playlist and settings from storage on startup
+chrome.storage.local.get(['playlist', 'settings'], (result) => {
     if (result.playlist) {
         playlist = result.playlist;
         updatePlaylistUI();
     }
+    if (result.settings) {
+        settings = result.settings;
+        // Update UI with loaded settings
+        videoQualitySelect.value = settings.videoQuality;
+        downloadPathInput.value = settings.downloadPath;
+    }
+});
+
+// Save settings
+saveSettingsBtn.addEventListener('click', async () => {
+    settings.videoQuality = videoQualitySelect.value;
+    settings.downloadPath = downloadPathInput.value.trim() || 'Downloads/Karaoke';
+    
+    await saveSettings();
+    showStatus('Impostazioni salvate', 'success');
 });
 
 // Add video to playlist
@@ -74,7 +96,8 @@ playAllBtn.addEventListener('click', async () => {
     // Send message to background script to start playback
     chrome.runtime.sendMessage({
         action: 'playPlaylist',
-        playlist: playlist
+        playlist: playlist,
+        settings: settings
     }, (response) => {
         if (response && response.success) {
             showStatus('Riproduzione avviata', 'success');
@@ -150,6 +173,15 @@ function getStatusText(status) {
 async function savePlaylist() {
     return new Promise((resolve) => {
         chrome.storage.local.set({ playlist: playlist }, () => {
+            resolve();
+        });
+    });
+}
+
+// Save settings to storage
+async function saveSettings() {
+    return new Promise((resolve) => {
+        chrome.storage.local.set({ settings: settings }, () => {
             resolve();
         });
     });
