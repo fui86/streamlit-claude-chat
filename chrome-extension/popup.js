@@ -1,10 +1,14 @@
 // Popup management script
 let playlist = [];
 let currentVideoIndex = 0;
-let settings = {
+
+// Default settings constant
+const DEFAULT_SETTINGS = {
     videoQuality: '480',
     downloadPath: 'Downloads/Karaoke'
 };
+
+let settings = { ...DEFAULT_SETTINGS };
 
 // DOM Elements
 const youtubeUrlInput = document.getElementById('youtube-url');
@@ -34,7 +38,7 @@ chrome.storage.local.get(['playlist', 'settings'], (result) => {
 // Save settings
 saveSettingsBtn.addEventListener('click', async () => {
     settings.videoQuality = videoQualitySelect.value;
-    settings.downloadPath = downloadPathInput.value.trim() || 'Downloads/Karaoke';
+    settings.downloadPath = downloadPathInput.value.trim() || DEFAULT_SETTINGS.downloadPath;
     
     await saveSettings();
     showStatus('Impostazioni salvate', 'success');

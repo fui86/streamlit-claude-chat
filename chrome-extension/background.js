@@ -79,7 +79,7 @@ async function playVideo(video, displays, settings) {
         
         // Calculate window position for fullscreen on target display
         const windowOptions = {
-            url: chrome.runtime.getURL(`player.html?videoId=${video.id}&quality=${settings.videoQuality}&path=${encodeURIComponent(settings.downloadPath)}`),
+            url: chrome.runtime.getURL(`player.html?videoId=${encodeURIComponent(video.id)}&quality=${encodeURIComponent(settings.videoQuality)}&path=${encodeURIComponent(settings.downloadPath)}`),
             type: 'popup',
             state: 'fullscreen',
             left: targetDisplay.bounds.left,

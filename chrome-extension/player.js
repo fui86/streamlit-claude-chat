@@ -26,7 +26,13 @@ function loadVideo(id, videoQuality, path) {
     const videoTitle = document.getElementById('video-title');
     
     // Set YouTube embed URL with autoplay and controls
-    // Note: YouTube's vq parameter suggests quality but doesn't guarantee it
+    // Note: YouTube's vq parameter suggests quality preference but doesn't guarantee it.
+    // YouTube will automatically select the best available quality based on:
+    // - Available video formats
+    // - Network conditions
+    // - Player size
+    // If the requested quality is unavailable, YouTube falls back to the closest available quality.
+    // For guaranteed quality control, consider using YouTube Data API v3 with direct video downloads.
     const embedUrl = `https://www.youtube.com/embed/${id}?autoplay=1&controls=1&rel=0&modestbranding=1&vq=${videoQuality}p`;
     
     videoPlayer.src = embedUrl;
