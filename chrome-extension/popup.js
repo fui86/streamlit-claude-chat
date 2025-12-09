@@ -95,9 +95,9 @@ clearPlaylistBtn.addEventListener('click', async () => {
 });
 
 // Remove single video from playlist
-function removeVideo(index) {
+async function removeVideo(index) {
     playlist.splice(index, 1);
-    savePlaylist();
+    await savePlaylist();
     updatePlaylistUI();
     showStatus('Video rimosso', 'info');
 }
@@ -179,14 +179,14 @@ function isValidYouTubeUrl(url) {
 // Extract video ID from YouTube URL
 function extractVideoId(url) {
     const patterns = [
-        /[?&]v=([^&]+)/,  // youtube.com/watch?v=...
-        /youtu\.be\/([^?]+)/,  // youtu.be/...
-        /embed\/([^?]+)/  // youtube.com/embed/...
+        /[?&]v=([\w-]{11})/,  // youtube.com/watch?v=... (11 chars: letters, numbers, hyphens, underscores)
+        /youtu\.be\/([\w-]{11})/,  // youtu.be/... (11 chars)
+        /embed\/([\w-]{11})/  // youtube.com/embed/... (11 chars)
     ];
     
     for (const pattern of patterns) {
         const match = url.match(pattern);
-        if (match) {
+        if (match && match[1].length === 11) {
             return match[1];
         }
     }

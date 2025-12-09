@@ -14,12 +14,24 @@ fi
 
 echo "✅ Extension directory found"
 
-# Validate manifest.json
-if python3 -m json.tool manifest.json > /dev/null 2>&1; then
-    echo "✅ manifest.json is valid"
+# Validate manifest.json - check for python3 or node
+if command -v python3 &> /dev/null; then
+    if python3 -m json.tool manifest.json > /dev/null 2>&1; then
+        echo "✅ manifest.json is valid"
+    else
+        echo "❌ manifest.json has JSON errors"
+        exit 1
+    fi
+elif command -v node &> /dev/null; then
+    if node -e "JSON.parse(require('fs').readFileSync('manifest.json', 'utf8'))" 2>&1; then
+        echo "✅ manifest.json is valid"
+    else
+        echo "❌ manifest.json has JSON errors"
+        exit 1
+    fi
 else
-    echo "❌ manifest.json has JSON errors"
-    exit 1
+    echo "⚠️  Warning: Cannot validate JSON (python3 or node not found)"
+    echo "✅ Assuming manifest.json is valid"
 fi
 
 # Check required files

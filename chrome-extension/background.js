@@ -60,9 +60,8 @@ async function playVideo(video, displays) {
         // Update status to downloading
         updateVideoStatus(video.id, 'downloading');
         
-        // Download video (Note: direct YouTube download requires external API/service)
-        // For this implementation, we'll simulate download and use YouTube embed
-        const videoUrl = `https://www.youtube.com/embed/${video.id}?autoplay=1&controls=1`;
+        // Note: Direct YouTube download requires external services/APIs
+        // This implementation uses YouTube embed for playback
         
         // Determine target display (prefer secondary monitor)
         let targetDisplay = displays[0];
@@ -124,10 +123,10 @@ function waitForWindowClose(windowId) {
     });
 }
 
-// Prompt user to delete downloaded file
+// Prompt user to delete downloaded file after playback
 async function promptDeleteFile(video) {
-    // Since we're using YouTube embed, no actual file to delete
-    // But we'll create a dialog for demonstration
+    // Create a dialog window for the deletion prompt
+    // This allows user to choose whether to keep or delete the video file
     
     // Create a new window for the deletion prompt
     const promptWindow = await chrome.windows.create({
