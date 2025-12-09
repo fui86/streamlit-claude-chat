@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karaoke Player</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        #video-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        #controls {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px 30px;
+            border-radius: 10px;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        #controls button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        #controls button:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+        }
+
+        #controls button.close {
+            background: #f56565;
+        }
+
+        #controls button.close:hover {
+            background: #e53e3e;
+        }
+
+        #video-title {
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        #loading {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-left-color: #667eea;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        #error {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(245, 101, 101, 0.95);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 500px;
+            display: none;
+        }
+
+        #error h2 {
+            margin-bottom: 15px;
+        }
+
+        #error button {
+            background: white;
+            color: #f56565;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div id="loading">
+        <div class="spinner"></div>
+        <p>Caricamento video...</p>
+    </div>
+
+    <div id="error">
+        <h2>❌ Errore</h2>
+        <p id="error-message"></p>
+        <button onclick="window.close()">Chiudi</button>
+    </div>
+
+    <div id="video-container" style="display: none;">
+        <iframe id="video-player" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    </div>
+
+    <div id="controls">
+        <span id="video-title">Karaoke Video Player</span>
+        <button onclick="toggleFullscreen()">⛶ Fullscreen</button>
+        <button class="close" onclick="window.close()">✖ Chiudi</button>
+    </div>
+
+    <script src="player.js"></script>
+</body>
+</html>
