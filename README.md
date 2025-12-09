@@ -4,6 +4,23 @@ Streamlit LLM Chat App by anthropic claude
 
 ![screen_shot](./image/screen_shot_1.gif)
 
+## 🎤 Karaoke Video Player Extension
+
+This repository now includes a Chrome extension for karaoke video playback! 
+
+**[📖 View Chrome Extension Documentation](./chrome-extension/README.md)**
+
+Features:
+- Download and play YouTube videos in 480p
+- Fullscreen playback on secondary monitor
+- Management interface on primary monitor
+- Post-playback file deletion prompt
+- Italian interface
+
+---
+
+## Streamlit Claude Chat App
+
 ## git clone
 
 ```
