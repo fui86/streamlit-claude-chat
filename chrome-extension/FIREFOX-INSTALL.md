@@ -37,31 +37,53 @@ cd chrome-extension
 
 Dopo aver scaricato l'estensione, devi preparare i file per Firefox:
 
-### 1. Rinomina il Manifest
+### Metodo Automatico (CONSIGLIATO) 🚀
 
-Nella cartella `chrome-extension`:
+Usa lo script di setup per preparare automaticamente l'estensione:
 
-**Su Windows (PowerShell):**
-```powershell
-Rename-Item manifest.json manifest-chrome.json
-Rename-Item manifest-firefox.json manifest.json
-Rename-Item background.js background-chrome.js
-Rename-Item background-firefox.js background.js
+**Su Windows:**
+```batch
+cd chrome-extension
+setup-firefox.bat
 ```
 
 **Su Linux/Mac:**
 ```bash
-mv manifest.json manifest-chrome.json
-mv manifest-firefox.json manifest.json
-mv background.js background-chrome.js
-mv background-firefox.js background.js
+cd chrome-extension
+chmod +x setup-firefox.sh
+./setup-firefox.sh
 ```
 
-**Manualmente:**
-- Rinomina `manifest.json` in `manifest-chrome.json`
-- Rinomina `manifest-firefox.json` in `manifest.json`
-- Rinomina `background.js` in `background-chrome.js`
-- Rinomina `background-firefox.js` in `background.js`
+Lo script farà automaticamente:
+- ✅ Backup dei file Chrome originali
+- ✅ Copia dei file Firefox corretti
+- ✅ Configurazione pronta per l'installazione
+
+### Metodo Manuale
+
+Se preferisci fare manualmente, nella cartella `chrome-extension`:
+
+**Su Windows (PowerShell):**
+```powershell
+Copy-Item manifest.json manifest-chrome.json
+Copy-Item background.js background-chrome.js
+Copy-Item manifest-firefox.json manifest.json -Force
+Copy-Item background-firefox.js background.js -Force
+```
+
+**Su Linux/Mac:**
+```bash
+cp manifest.json manifest-chrome.json
+cp background.js background-chrome.js
+cp manifest-firefox.json manifest.json
+cp background-firefox.js background.js
+```
+
+**Manualmente (senza comandi):**
+1. Copia `manifest.json` e rinominalo in `manifest-chrome.json` (backup)
+2. Copia `background.js` e rinominalo in `background-chrome.js` (backup)
+3. Copia `manifest-firefox.json` e rinominalo in `manifest.json` (sovrascrivendo)
+4. Copia `background-firefox.js` e rinominalo in `background.js` (sovrascrivendo)
 
 ## 🚀 Installazione su Firefox
 
@@ -178,14 +200,43 @@ Poiché Firefox non ha l'API per rilevare automaticamente i monitor:
 
 ## 🐛 Risoluzione Problemi Firefox
 
-### L'estensione non si carica
+### ❌ Errore: "background.service_worker is currently disabled"
 
-**Problema**: Errore durante il caricamento
+**Problema**: Questo errore appare quando Firefox sta cercando di caricare il manifest di Chrome invece di quello di Firefox.
+
+**Causa**: Non hai sostituito correttamente i file. Firefox sta leggendo `manifest.json` che contiene la configurazione Chrome (Manifest V3 con service_worker).
 
 **Soluzione**:
-1. Verifica di aver rinominato correttamente `manifest-firefox.json` in `manifest.json`
-2. Verifica di aver rinominato `background-firefox.js` in `background.js`
+1. **Esegui lo script di setup**:
+   - Windows: `setup-firefox.bat`
+   - Linux/Mac: `./setup-firefox.sh`
+2. **Oppure verifica manualmente**:
+   - Apri `manifest.json` con un editor di testo
+   - Controlla che contenga `"manifest_version": 2` (NON 3)
+   - Controlla che la sezione background sia:
+     ```json
+     "background": {
+       "scripts": ["background-firefox.js"],
+       "persistent": false
+     }
+     ```
+   - Se vedi `"service_worker"` nel manifest, NON è quello corretto per Firefox!
+3. **Se necessario, ricopia i file**:
+   ```bash
+   cp manifest-firefox.json manifest.json
+   cp background-firefox.js background.js
+   ```
+4. **Ricarica l'estensione** in `about:debugging`
+
+### L'estensione non si carica
+
+**Problema**: Errore generico durante il caricamento
+
+**Soluzione**:
+1. Verifica di aver copiato (NON rinominato) `manifest-firefox.json` in `manifest.json`
+2. Verifica di aver copiato `background-firefox.js` in `background.js`
 3. Controlla la console errori in `about:debugging`
+4. Assicurati che tutti i file siano presenti (icone, popup.html, ecc.)
 
 ### La finestra non si apre sul secondo monitor
 
@@ -217,11 +268,14 @@ Poiché Firefox non ha l'API per rilevare automaticamente i monitor:
 ## 📋 Checklist Installazione Firefox
 
 - [ ] Download estensione da GitHub
-- [ ] Rinomina `manifest-firefox.json` → `manifest.json`
-- [ ] Rinomina `background-firefox.js` → `background.js`
-- [ ] Backup dei file originali (opzionale)
+- [ ] **Esegui `setup-firefox.bat` (Windows) o `setup-firefox.sh` (Linux/Mac)**
+- [ ] Oppure copia manualmente i file Firefox
+- [ ] Verifica che `manifest.json` contenga `"manifest_version": 2`
 - [ ] Apri `about:debugging` su Firefox
+- [ ] Clicca "Questo Firefox"
 - [ ] Carica estensione temporanea
+- [ ] Seleziona `manifest.json`
+- [ ] Verifica che l'estensione sia caricata senza errori
 - [ ] Configura impostazioni (qualità, percorso)
 - [ ] Testa con un video
 - [ ] Sposta manualmente su secondo monitor
