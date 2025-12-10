@@ -176,3 +176,11 @@ pyrightconfig.json
 # End of https://www.toptal.com/developers/gitignore/api/python
 .venv/
 .env
+
+# Chrome Extension - Downloaded videos and temporary files
+chrome-extension/downloads/
+chrome-extension/*.mp4
+chrome-extension/*.webm
+chrome-extension/*.mkv
+chrome-extension/temp/
+
