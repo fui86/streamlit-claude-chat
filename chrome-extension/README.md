@@ -1,6 +1,13 @@
-# 🎤 Karaoke Video Player - Chrome Extension
+# 🎤 Karaoke Video Player - Browser Extension
 
-Una estensione di Google Chrome per scaricare e riprodurre video YouTube in modalità karaoke su un secondo monitor.
+Una estensione per Google Chrome e Mozilla Firefox per scaricare e riprodurre video YouTube in modalità karaoke su un secondo monitor.
+
+## 🌐 Compatibilità Browser
+
+- ✅ **Google Chrome** / Chromium (Manifest V3) - Supporto completo con rilevamento automatico multi-monitor
+- ✅ **Mozilla Firefox** (Manifest V2) - Supporto completo, spostamento manuale finestra su secondo monitor
+
+**📖 Per installazione Firefox**: Vedi [FIREFOX-INSTALL.md](./FIREFOX-INSTALL.md)
 
 ## 📋 Funzionalità
 
@@ -16,7 +23,12 @@ Una estensione di Google Chrome per scaricare e riprodurre video YouTube in moda
 
 ## 🚀 Installazione
 
-### Prerequisiti
+### 📌 Scegli il tuo Browser
+
+- **Chrome/Chromium**: Segui le istruzioni qui sotto
+- **Firefox**: Vedi la [Guida Firefox](./FIREFOX-INSTALL.md)
+
+### Prerequisiti (Chrome)
 - Google Chrome o Chromium browser
 - Due monitor collegati (opzionale, ma consigliato)
 
